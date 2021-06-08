@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 import yaml
+import hashlib
 
 form_class = uic.loadUiType("test.ui")[0]
 
@@ -14,8 +15,8 @@ class WindowClass(QMainWindow, form_class) :
          
          
         #버튼에 기능을 할당하는 코드
-        self.lineEdit_2.textChanged.connect(self.lineeditTextFunction)
-        self.lineEdit_2.returnPressed.connect(self.printTextFunction)
+        #self.lineEdit_2.textChanged.connect(self.lineeditTextFunction)
+        #self.lineEdit_2.returnPressed.connect(self.printTextFunction)
         #self.pushButton.clicked.connect(self.changeTextFunction)
         #line Edit에 입력된 값을 저장
         self.pushButton.clicked.connect(self.saveText)
@@ -40,15 +41,28 @@ class WindowClass(QMainWindow, form_class) :
         print(a)
         #self.lineEdit.setText("Change Text")
     
-    
     def saveText(self) :
         #YAML 저장을 함수로 구현 
-        pwd_type1=(self.lineEdit_2.text())
-        with open('account.yml', 'w') as f:
-              yaml.dump(pwd_type1, f) 
-     
-  
+        #pwd_type1=(self.lineEdit_2.text())+(self.lineEdit_1.text())+(self.lineEdit_3.text())
+        id = self.lineEdit_1.text()
+        pwd_a = self.lineEdit_2.text()
+        pwd_b = self.lineEdit_3.text()
 
+        pwd = {'ID':id,
+       'pwd':
+           [
+            {'type1':(hashlib.sha256(pwd_a.encode()).hexdigest())},
+            {'type2':(hashlib.sha256(pwd_b.encode()).hexdigest())}
+           ]
+       }
+        print(pwd)
+        with open('account.yml', 'w') as f:
+              yaml.dump(pwd, f)
+        #입력 완료후 Text clear
+        self.lineEdit_1.clear()
+        self.lineEdit_2.clear() 
+        self.lineEdit_3.clear() 
+     
 if __name__ == "__main__" :
     app = QApplication(sys.argv)
     myWindow = WindowClass()

@@ -16,20 +16,20 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>360</x>
      <y>80</y>
-     <width>71</width>
-     <height>31</height>
+     <width>141</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="text">
-    <string>button1</string>
+    <string>인증key생성</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>40</x>
      <y>90</y>
      <width>56</width>
      <height>12</height>
@@ -42,20 +42,20 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>40</x>
      <y>130</y>
      <width>56</width>
      <height>12</height>
     </rect>
    </property>
    <property name="text">
-    <string>PASS</string>
+    <string>PASS01</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_1">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>120</x>
      <y>80</y>
      <width>201</width>
      <height>31</height>
@@ -65,11 +65,34 @@
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>120</x>
      <y>120</y>
      <width>201</width>
      <height>31</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_3">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>160</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>170</y>
+     <width>56</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PASS02</string>
    </property>
   </widget>
  </widget>
